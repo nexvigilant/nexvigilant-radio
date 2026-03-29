@@ -22,5 +22,12 @@
     "eslint-config-next": "16.2.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "description": "NexVigilant Radio \u2014 receiver app for 1,800+ pharmacovigilance tools broadcasting from mcp.nexvigilant.com",
+  "author": "NexVigilant, LLC <matthew@nexvigilant.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexvigilant/nexvigilant-radio.git"
   }
 }

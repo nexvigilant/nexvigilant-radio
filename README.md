@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NexVigilant Radio
 
-## Getting Started
+Receiver app for 1,800+ pharmacovigilance tools broadcasting from [mcp.nexvigilant.com](https://mcp.nexvigilant.com).
 
-First, run the development server:
+The Station broadcasts. The Radio receives.
+
+## What It Does
+
+Connects to the NexVigilant Station MCP server and presents all tools as tunable frequencies. Search, browse, and call any tool directly from the browser.
+
+- **198 frequencies** grouped into 7 bands (Pharmacovigilance, Regulatory, Clinical, Science, Intelligence, Reference, Compute)
+- **Signal strength indicators** per domain
+- **Interactive tool forms** with typed parameters
+- **Latency tracking** on every broadcast
+- **Broadcast history** for the session
+
+## Live
+
+[nexvigilant-radio.vercel.app](https://nexvigilant-radio.vercel.app)
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev    # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 16, TypeScript, Tailwind CSS
+- Connects to mcp.nexvigilant.com (HTTP REST + JSON-RPC)
+- No API keys required — all tools are public
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Architecture
 
-## Learn More
+```
+Radio (this app)  -->  mcp.nexvigilant.com/tools   (discovery)
+                  -->  mcp.nexvigilant.com/rpc     (tool calls via JSON-RPC)
+                  -->  mcp.nexvigilant.com/health  (station status)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NexVigilant Source Available License v1.0. Personal non-commercial use only. Organizational use requires written permission from matthew@nexvigilant.com.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [NexVigilant](https://nexvigilant.com) — Empowerment Through Vigilance.
